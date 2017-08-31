@@ -45,10 +45,11 @@ export default class TestComponent extends Component {
       {text: 'Australia', value: {name: 'Australia', countryCode: 'AU'}},
       {text: 'New Zealand', value: {name: 'New Zealand', countryCode: 'NZ'}}
     ];
+
     return (
       <div className='Test'>
         Test
-        <Dropdown onChange={this.onChange} combo required placeholder='Please select country' />
+        <Dropdown onChange={this.onChange} combo required placeholder='Please select country' options={options} />
       </div>
     );
   }
