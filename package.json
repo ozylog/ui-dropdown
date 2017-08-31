@@ -1,0 +1,37 @@
+{
+  "name": "@ozylog/ui-dropdown",
+  "version": "0.0.0",
+  "description": "React UI Dropdown with react-jss",
+  "main": "./dist/index.js",
+  "scripts": {
+    "prepublish": "boilerplate --build=react",
+    "build": "boilerplate --build=react"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozylog/ui-dropdown.git"
+  },
+  "keywords": [
+    "ozylog",
+    "ui",
+    "dropdown",
+    "react"
+  ],
+  "author": "Cahya Pribadi <cahya@monelog.com>",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/ozylog/ui-dropdown/issues"
+  },
+  "homepage": "https://github.com/ozylog/ui-dropdown#readme",
+  "devDependencies": {
+    "@ozylog/boilerplate": "^0.7.1"
+  },
+  "peerDependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-jss": "^7.0.2"
+  },
+  "dependencies": {
+    "@ozylog/arrow-icons": "^0.1.2"
+  }
+}
