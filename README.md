@@ -19,7 +19,7 @@ npm install @ozylog/ui-dropdown --save
 | combo | `Boolean` | Enable comboBox mode. User can filter dropdown items based on input. |  |
 | required | `Boolean` | Activate remove icon/button if dropdown has value. Allow dropdown to has null value. | true |
 | placeholer | `String` | Input placeholder. |  |
-| options | `Array<Object:{text: String, value: any}>` | Static dropdown options. | [{text: 'Australia', value: {countryCode: 'AU', ...}}] |
+| options | `Array<{text: String, value: any}>` | Static dropdown options. Options will be ignored if there is getOptions function. | [{text: 'Australia', value: {countryCode: 'AU', ...}}] |
 | getOptions | `Function` | Dynamic dropdown option. The function will be called when dropdown is on focus / after typing. The function should return `Array<{text: String, value: any}>` or Promise of `Array<{text: String, value: any}>`. |  |
 | onChange | `Function` | The function will called when dropdown value has changed. It will return `value` of  `{text: String, value: any}`. |  |
 | onBlur | `Function` | The function will called when dropdown is onBlur. |  |
@@ -36,15 +36,19 @@ export default class TestComponent extends Component {
     super(props);
   }
 
-  onClick = () => {
+  onChange = () => {
     // do something
   };
 
   render() {
+    const options = [
+      {text: 'Australia', value: {name: 'Australia', countryCode: 'AU'}},
+      {text: 'New Zealand', value: {name: 'New Zealand', countryCode: 'NZ'}}
+    ];
     return (
       <div className='Test'>
         Test
-        <ArrowIcon name='down' onClick={this.onClick} >
+        <Dropdown onChange={this.onChange} combo required placeholder='Please select country' />
       </div>
     );
   }
