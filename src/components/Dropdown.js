@@ -76,21 +76,17 @@ export default class Dropdown extends Component {
   }
 
   async componentWillMount() {
-    const {value, combo, getOptions} = this.props;
-
-    if (value) {
-      const selectedOption = await getOptionByValue(value);
+    if (this.props.value) {
+      const selectedOption = await this.getOptionByValue(this.props.value);
 
       if (selectedOption) this.setState({selectedOption});
     }
   }
 
   async componentWillReceiveProps(nextProps) {
-    const {combo, getOptions} = this.props;
-
     if (this.props.value !== nextProps.value) {
       const value = nextProps.value;
-      const selectedOption = await getOptionByValue(value);
+      const selectedOption = await this.getOptionByValue(value);
 
       if (selectedOption) this.setState({selectedOption});
     }
