@@ -27,9 +27,9 @@
     "@ozylog/boilerplate": "^0.7.1"
   },
   "peerDependencies": {
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-jss": "^7.0.2"
+    "react": "^15.0.0 || ^16.0.0",
+    "react-dom": "^15.0.0 || ^16.0.0",
+    "react-jss": "^7.0.0"
   },
   "dependencies": {
     "@ozylog/arrow-icons": "^0.1.2"

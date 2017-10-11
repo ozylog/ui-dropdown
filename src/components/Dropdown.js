@@ -15,7 +15,7 @@ const styles = {
     boxSizing: 'border-box',
     fontFamily: 'inherit',
     fontSize: 'inherit',
-    padding: '7px 9px',
+    padding: '9px 11px',
     paddingRight: '27px !important',
     position: 'relative',
     width: '100%',
@@ -40,7 +40,7 @@ const styles = {
     zIndex: 1,
     '& > div': {
       cursor: 'pointer',
-      padding: '5px 7px',
+      padding: '7px 11px',
       borderBottom: '1px solid #f5f5f5'
     },
     '& > div:last-child': {
@@ -76,17 +76,32 @@ export default class Dropdown extends Component {
   }
 
   async componentWillMount() {
-    const {keyword} = this.state;
     const {value, combo, getOptions} = this.props;
 
     if (value) {
-      const options = combo && getOptions ? await getOptions(keyword) : (this.props.options || []);
-      const selectedOption = options.find((option) => {
-        return option.value === value;
-      });
+      const selectedOption = await getOptionByValue(value);
 
       if (selectedOption) this.setState({selectedOption});
     }
+  }
+
+  async componentWillReceiveProps(nextProps) {
+    const {combo, getOptions} = this.props;
+
+    if (this.props.value !== nextProps.value) {
+      const value = nextProps.value;
+      const selectedOption = await getOptionByValue(value);
+
+      if (selectedOption) this.setState({selectedOption});
+    }
+  }
+
+  async getOptionByValue(value) {
+    const {combo, getOptions} = this.props;
+    const options = combo && getOptions ? await getOptions('') : (this.props.options || []);
+    const selectedOption = options.find((option) => option.value === value);
+
+    return selectedOption || null;
   }
 
   onFocus = () => {
