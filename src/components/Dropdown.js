@@ -10,7 +10,7 @@ const styles = {
   },
   input: {
     background: '#ffffff',
-    border: '1px solid #cccccc',
+    border: '1px solid #e7e7e7',
     borderRadius: '3px',
     boxSizing: 'border-box',
     fontFamily: 'inherit',
@@ -29,7 +29,7 @@ const styles = {
   },
   options: {
     background: '#ffffff',
-    border: '1px solid #cccccc',
+    border: '1px solid #e7e7e7',
     borderRadius: '0 0 3px 3px',
     fontSize: '15px',
     marginTop: '-1px',
@@ -47,13 +47,13 @@ const styles = {
       borderBottom: 0
     },
     '& > div.active': {
-      background: '#e5e5e5'
+      background: '#e7e7e7'
     }
   },
   arrowIcon: {
     marginRight: '10px',
     '&:before, &:after': {
-      backgroundColor: '#cccccc'
+      backgroundColor: '#e7e7e7'
     }
   }
 };
